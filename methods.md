@@ -1,5 +1,7 @@
 # Account (user: string, password: string)
 
+-----
+
 {% method name="login" %}
 ### `public login(): Promise`
 
