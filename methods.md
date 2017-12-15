@@ -66,11 +66,13 @@ Will return a list of partial grades:
   "frequency": number
 }]
 ```
-{% endmethod %}
+
 
 > `"discipline"` is a instance of [Discipline](/methods/discipline.md)
 
 > `"evaluations"` is a list of instances of [Evaluation](/methods/evaluation.md)
+
+{% endmethod %}
 
 
 
