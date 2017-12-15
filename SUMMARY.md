@@ -8,4 +8,6 @@
 
 * [Network](methods/network.md)
 * [Account](methods.md)
+  * [Discipline](methods/discipline.md)
+  * [Evaluation](methods/evaluation.md)
 

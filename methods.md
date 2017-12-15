@@ -24,3 +24,56 @@ Will return a list of registered emails and it's respective integrations:
 }]
 ```
 {% endmethod %}
+
+
+{% method name="getPartialGrades" %}
+### `public getPartialGrades (): Promise<object>`
+
+Will return a list of partial grades:
+
+```js
+[{
+  "approved": boolean,
+  "discipline": Discipline {
+    "name": string,
+    "code": string,
+    "classRoomId": number,
+    "quitDate": date,
+    "periodId": number,
+    "courseId": number,
+    "teacherId": number
+  },
+  "evaluations": [
+    Evaluation {
+      "applyDates": {
+        "applied": date,
+        "predicted": date,
+        "published": date
+      },
+      "description": string,
+      "grades": [
+        {
+          "date": date,
+          "score": number
+        }
+      ],
+      "code": date,
+      "title": date,
+      "weight": number
+    }
+  ],
+  "finalScore": number,
+  "frequency": number
+}]
+```
+{% endmethod %}
+
+> `"discipline"` is a instance of [Discipline](/methods/discipline.md)
+
+> `"evaluations"` is a list of instances of [Evaluation](/methods/evaluation.md)
+
+
+
+
+
+
