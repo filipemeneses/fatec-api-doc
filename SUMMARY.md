@@ -2,7 +2,7 @@
 
 ## Overview
 
-* [My Awesome API](README.md)
+* [Fatec API](README.md)
 
 ## Modules
 
