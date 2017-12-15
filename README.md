@@ -8,3 +8,13 @@ Created with Typescript and available as a javascript package at [**npm**](https
 The source code is available at [Github](https://github.com/filipemeneses/fatec-api).
 
 For suggestions/help use [Github Issues](https://github.com/filipemeneses/fatec-api/issues) or join our [Discord channel](https://discord.gg/RUv5Kxw).
+
+--------
+
+
+### Modules
+
+- [Network](/methods/network.md)
+- [Account](/methods.md)
+    - [Discipline](/methods/discipline.md)
+    - [Evaluation](/methods/evaluation.md)
