@@ -4,6 +4,8 @@
 
 * [My Awesome API](README.md)
 
-## Methods
+## Modules
 
-* [Defining Methods](methods.md)
+* [Network](methods/network.md)
+* [Account](methods.md)
+

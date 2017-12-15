@@ -1,30 +1,26 @@
-# Defining Methods
+# Account (user: string, password: string)
 
-Methods allow you to smoothly display code examples in different languages.
+{% method name="login" %}
+#### `public login(): Promise`
 
-{% method %}
-## My first method
+This will request SIGA for access and set the account as logged in.
+{% endmethod %}
 
-My first method exposes how to print a message in JavaScript and Go.
+{% method name="getName" %}
+#### `public getName(): Promise<string>`
 
-{% sample lang="js" %}
-Here is how to print a message to `stdout` using JavaScript.
+Will return the account's user name
+{% endmethod %}
+
+{% method name="getRegisteredEmails" %}
+#### `public getRegisteredEmails(): Promise<IRegisteredEmail[]>`
+
+Will return a list of registered emails and it's respective integrations:
 
 ```js
-console.log('My first method');
-```
-
-{% sample lang="go" %}
-Here is how to print a message to `stdout` using Go.
-
-```go
-fmt.Println("My first method")
-```
-
-{% common %}
-Whatever language you are using, the result will be the same.
-
-```bash
-$ My first method
+[{
+  email: string,
+  integrations: [ 'fatec', 'etec', 'preferential', 'websai']
+}]
 ```
 {% endmethod %}
