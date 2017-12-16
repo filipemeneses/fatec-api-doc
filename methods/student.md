@@ -10,6 +10,7 @@ private registeredEmails: IRegisteredEmail[];
 private partialGrades: IPartialGrade[];
 private enrolledDisciplines: Discipline[] = [];
 private schedules: ISchedule[];
+private history: IHistoryEntry[];
 ```
 
 besides that, also provides:
