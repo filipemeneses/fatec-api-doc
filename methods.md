@@ -157,4 +157,39 @@ Will return the history with it's entries:
 
 {% endmethod %}
 
+  
 
+
+{% method name="getSchoolGrade" %}
+
+### `public getSchoolGrade (): Promise<object[]>`
+
+Will return the school grade with the semesters disciplines:
+
+```js
+{
+  "disciplines": [
+    Discipline {
+      "name": string,
+      "code": string,
+      "quitDate": date,
+      "state": DisciplineState
+    }
+  ],
+  "number": number
+}
+```
+
+Where `DisciplineState`:
+
+```js
+enum DisciplineState {
+  approved = "approved",
+  notAttended = "not-attended",
+  attending = "attending",
+  dismissed = "dismissed",
+  quited = "quited",
+}
+```
+
+{% endmethod %}
