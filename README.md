@@ -10,6 +10,18 @@ For suggestions/help use [Github Issues](https://github.com/filipemeneses/fatec-
 
 ---
 
+## How it works
+
+Based on HTTP requests using `request` and `cheerio` libraries.
+
+Here's the flow of `Account.getName()`:
+
+
+![](/assets/requests.svg)
+
+
+
+
 ### Modules
 
 * [Network](/methods/network.md)
