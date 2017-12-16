@@ -76,6 +76,33 @@ Will return a list of partial grades:
 
 {% endmethod %}
 
+{% method name="getEnrolledDisciplines" %}
+
+### `public getEnrolledDisciplines (): Promise<object>`
+
+Will return the enrolled disciplines with attendance, teacher data
+
+```js
+[
+  Discipline {
+    "absenses": number,
+    "name": string,
+    "code": string,
+    "classRoomId": number,
+    "classRoomCode": string,
+    "quitDate": date,
+    "periodId": number,
+    "courseId": number,
+    "presences": number,
+    "teacherId": number,
+    "teacherName": string
+  }
+]
+```
+
+{% endmethod %}
+
+
 
 
 

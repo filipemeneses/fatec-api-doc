@@ -14,8 +14,10 @@ For suggestions/help use [Github Issues](https://github.com/filipemeneses/fatec-
 
 * [Network](/methods/network.md)
 * [Account](/methods.md)
+  * [**Student**](/methods/student.md)
   * [Discipline](/methods/discipline.md)
   * [Evaluation](/methods/evaluation.md)
+  
 
 
 
