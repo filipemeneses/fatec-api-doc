@@ -12,14 +12,14 @@ For suggestions/help use [Github Issues](https://github.com/filipemeneses/fatec-
 
 ## How it works
 
-Based on HTTP requests using `request` and `cheerio` libraries.
+This library scrap data using HTTP requests with `request` and parses the HTML with `cheerio` library.
 
-Here's the flow of `Account.getName()`:
+The [Account](/methods.md) class does the heavy lifting. Here's the flow of Account.getName():
 
 
 ![](/assets/requests.svg)
 
-
+The scrapped data is later available at [Account.student](/methods/student.md) on an account instance.
 
 
 ### Modules
