@@ -9,6 +9,7 @@ private name: string;
 private registeredEmails: IRegisteredEmail[];
 private partialGrades: IPartialGrade[];
 private enrolledDisciplines: Discipline[] = [];
+private schedules: ISchedule[];
 ```
 
 besides that, also provides:

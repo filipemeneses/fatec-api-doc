@@ -102,6 +102,32 @@ Will return the enrolled disciplines with attendance, teacher data
 
 {% endmethod %}
 
+{% method name="getSchedules" %}
+
+### `public getSchedules (): Promise<string> `
+
+Will return the schedules with weekday and periods:
+
+```js
+[
+  {
+    "weekday": number
+    "periods": [
+      {
+        "classroomCode": string,
+        "discipline": Discipline {
+          "code": string,
+        },
+        "endAt": date,
+        "startAt": date
+      },
+    ]
+  }
+]
+```
+
+{% endmethod %}
+
 
 
 
