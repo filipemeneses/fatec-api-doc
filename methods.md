@@ -131,6 +131,30 @@ Will return the schedules with weekday and periods:
 
 
 
+{% method name="getHistory" %}
 
+### `public getHistory (): Promise<string>`
+
+Will return the history with it's entries:
+
+```js
+[
+  {
+    "absenses": number,
+    "approved": boolean,
+    "discipline": Discipline {
+      "name": string,
+      "code": string,
+      "quitDate": date
+    },
+    "frequency": number,
+    "grade": number,
+    "observation": string,
+    "period": string
+  }
+]
+```
+
+{% endmethod %}
 
 
