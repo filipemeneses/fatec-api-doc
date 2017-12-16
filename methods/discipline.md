@@ -7,11 +7,15 @@ Discipline class contains the following attributes (and it's respective getters 
 private name: string;
 private code: string;
 private period: string;
-private classRoomId: number;
+private classroomCode: string;
+private classroomId: number;
 private quitDate: Date;
 private periodId: number;
 private courseId: number;
+private teacherName: string;
 private teacherId: number;
+private absenses: number;
+private presences: number;
 ```
 
 
