@@ -18,7 +18,7 @@ For suggestions/help use [Github Issues](https://github.com/filipemeneses/fatec-
 
 If you're at a NPM project, use: 
 
-{% sample lang="bash" %}
+{% sample lang="js" %}
 ```bash
 npm install --save fatec-api
 ```
