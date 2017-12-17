@@ -10,7 +10,34 @@ For suggestions/help use [Github Issues](https://github.com/filipemeneses/fatec-
 
 ---
 
-## How it works
+## Getting Started
+
+A quick example will show how to use it, scrapping the user name. And will cover the usage with [Node.js](https://nodejs.org/en/) using ES6 syntax.
+
+```js
+const fatecApi = require('fatec-api')
+const myAccount = new fatecApi.Account('LOGIN', 'PASSWORD')
+
+let myName = ''
+
+myAccount.login().then(() => {
+  return myAccount.getName().then(name => {
+    myName = name
+  })
+})
+
+console.log(myName)
+// <- 'YOUR FULL NAME WITH CAPSLOCK'
+```
+
+The scrapped data is available at `Account.student`, **continuing the example**: 
+
+```js
+myAccount.student.getName()
+// <- 'YOUR FULL NAME WITH CAPSLOCK'
+```
+
+## How it works (Account.getName)
 
 This library scrap data using HTTP requests with `request` and parses the HTML with `cheerio` library.
 

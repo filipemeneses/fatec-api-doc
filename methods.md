@@ -6,7 +6,10 @@
 ### `public login(): Promise`
 
 This will request SIGA for access and set the account as logged in.
+
 {% endmethod %}
+
+
 
 {% method name="getName" %}
 ### `public getName(): Promise<string>`
