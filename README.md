@@ -13,11 +13,25 @@ The source code is available at [Github](https://github.com/filipemeneses/fatec-
 For suggestions/help use [Github Issues](https://github.com/filipemeneses/fatec-api/issues) or join our [Discord channel](https://discord.gg/RUv5Kxw).
 
 ---
+{% method name="install" %}
+## Install
+
+If you're at a NPM project, use: 
+
+{% sample lang="bash" %}
+```bash
+npm install --save fatec-api
+```
+
+{% endmethod %}
+
+{% method name="getting-started" %}
 
 ## Getting Started
 
 A quick example will show how to use it, scrapping the user name. And will cover the usage with [Node.js](https://nodejs.org/en/) using ES6 syntax.
 
+{% sample lang="js" %}
 ```js
 const fatecApi = require('fatec-api')
 const myAccount = new fatecApi.Account('LOGIN', 'PASSWORD')
@@ -32,10 +46,12 @@ myAccount.login().then(() => {
 
 The scrapped data is available at `Account.student`, **continuing the example**: 
 
+{% sample lang="js" %}
 ```js
 myAccount.student.getName()
 // <- 'YOUR FULL NAME WITH CAPSLOCK'
 ```
+{% endmethod %}
 
 ## How it works (Account.getName)
 
