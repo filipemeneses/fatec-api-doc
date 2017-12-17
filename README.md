@@ -18,16 +18,12 @@ A quick example will show how to use it, scrapping the user name. And will cover
 const fatecApi = require('fatec-api')
 const myAccount = new fatecApi.Account('LOGIN', 'PASSWORD')
 
-let myName = ''
-
 myAccount.login().then(() => {
   return myAccount.getName().then(name => {
-    myName = name
+    console.log(name)
+    // <- 'YOUR FULL NAME WITH CAPSLOCK'
   })
 })
-
-console.log(myName)
-// <- 'YOUR FULL NAME WITH CAPSLOCK'
 ```
 
 The scrapped data is available at `Account.student`, **continuing the example**: 
