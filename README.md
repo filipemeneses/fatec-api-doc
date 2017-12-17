@@ -1,7 +1,7 @@
 <div style="width: 400px">
-
-![Fatec API](/assets/logo.png)
-
+  <h1>
+    <img src="/assets/logo.png" alt="Fatec API"/>
+  </h1>
 </div>
 
 **fatec-api** is an API for Centro Paula Souza's SIGA made for students to create things based in their profile data. 🙂
