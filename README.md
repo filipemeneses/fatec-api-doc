@@ -1,4 +1,4 @@
-<div style="width: 400px">
+<div style="width: 400px; margin-left: -34px;">
   <h1>
     <img src="/assets/logo.png" alt="Fatec API"/>
   </h1>
