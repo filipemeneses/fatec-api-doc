@@ -20,6 +20,7 @@ This will request SIGA for access and set the account as logged in.
 
 Will return the account's user name.
 
+{% sample lang="js" %}
 ```js
 const fatecApi = require('fatec-api')
 const myAccount = new fatecApi.Account('LOGIN', 'PASSWORD')
@@ -36,6 +37,7 @@ myAccount.getName().then(name => {
 
 Will return a list of registered emails and it's respective integrations:
 
+{% sample lang="js" %}
 ```js
 [{
   email: string,
@@ -48,8 +50,14 @@ Will return a list of registered emails and it's respective integrations:
 {% method name="getPartialGrades" %}
 ### `public getPartialGrades (): Promise<object>`
 
-Will return a list of partial grades:
+Will return a list of partial grades
 
+
+> `"discipline"` is a instance of [Discipline](/methods/discipline.md)
+
+> `"evaluations"` is a list of instances of [Evaluation](/methods/evaluation.md)
+
+{% sample lang="js" %}
 ```js
 [{
   "approved": boolean,
@@ -86,11 +94,6 @@ Will return a list of partial grades:
 }]
 ```
 
-
-> `"discipline"` is a instance of [Discipline](/methods/discipline.md)
-
-> `"evaluations"` is a list of instances of [Evaluation](/methods/evaluation.md)
-
 {% endmethod %}
 
 {% method name="getEnrolledDisciplines" %}
@@ -99,6 +102,7 @@ Will return a list of partial grades:
 
 Will return the enrolled disciplines with attendance, teacher data
 
+{% sample lang="js" %}
 ```js
 [
   Discipline {
@@ -123,8 +127,9 @@ Will return the enrolled disciplines with attendance, teacher data
 
 ### `public getSchedules (): Promise<string> `
 
-Will return the schedules with weekday and periods:
+Will return the schedules with weekday and periods
 
+{% sample lang="js" %}
 ```js
 [
   {
@@ -152,8 +157,9 @@ Will return the schedules with weekday and periods:
 
 ### `public getHistory (): Promise<string>`
 
-Will return the history with it's entries:
+Will return the history with it's entries
 
+{% sample lang="js" %}
 ```js
 [
   {
@@ -183,6 +189,7 @@ Will return the history with it's entries:
 
 Will return the school grade with the semesters disciplines:
 
+{% sample lang="js" %}
 ```js
 {
   "disciplines": [
@@ -199,6 +206,7 @@ Will return the school grade with the semesters disciplines:
 
 Where `DisciplineState`:
 
+{% sample lang="js" %}
 ```js
 enum DisciplineState {
   approved = "approved",

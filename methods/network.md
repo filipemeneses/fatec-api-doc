@@ -10,6 +10,7 @@ Methods to connect and parse SIGA's pages
 URLs are available at `Network.ROUTES`.
 `scrapper` is a function that will receive a Cheerio loaded instance (jQuery-like selector)
 
+{% sample lang="js" %}
 ```js
 Network.scrap({
   cookie: 'somecookie...',
@@ -29,6 +30,7 @@ Network.scrap({
 `route` can be a full URL or subpath. Already defined 
 URLs are available at `Network.ROUTES`.
 
+{% sample lang="js" %}
 ```js
 Network.post({
   route: Network.ROUTES.LOGIN,
@@ -44,7 +46,7 @@ Network.post({
 `route` can be a full URL or subpath. Already defined 
 URLs are available at `Network.ROUTES`.
 
-
+{% sample lang="js" %}
 ```js
 Network.get({
 route: Network.ROUTES.HOME,
