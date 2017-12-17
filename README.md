@@ -36,12 +36,11 @@ A quick example will show how to use it, scrapping the user name. And will cover
 const fatecApi = require('fatec-api')
 const myAccount = new fatecApi.Account('LOGIN', 'PASSWORD')
 
-myAccount.login().then(() => {
-  return myAccount.getName().then(name => {
-    console.log(name)
-    // <- 'YOUR FULL NAME WITH CAPSLOCK'
-  })
+myAccount.getName().then(name => {
+  console.log(name)
+  // <- 'YOUR FULL NAME WITH CAPSLOCK'
 })
+
 ```
 
 The scrapped data is available at `Account.student`, **continuing the example**: 
@@ -53,7 +52,7 @@ myAccount.student.getName()
 ```
 {% endmethod %}
 
-## How it works (Account.getName)
+## How it works `account.getName()`
 
 This library scrap data using HTTP requests with `request` and parses the HTML with `cheerio` library.
 
