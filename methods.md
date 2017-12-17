@@ -1,5 +1,9 @@
 # Account (user: string, password: string)
 
+> From v7.2 **.login()** is no longer mandatory to use the methods.
+
+> For instance: you can call **account.getPartialGrades()** without calling **account.login()** first.
+
 -----
 
 {% method name="login" %}
@@ -14,7 +18,17 @@ This will request SIGA for access and set the account as logged in.
 {% method name="getName" %}
 ### `public getName(): Promise<string>`
 
-Will return the account's user name
+Will return the account's user name.
+
+```js
+const fatecApi = require('fatec-api')
+const myAccount = new fatecApi.Account('LOGIN', 'PASSWORD')
+
+myAccount.getName().then(name => {
+  console.log(name)
+  // <- 'YOUR FULL NAME WITH CAPSLOCK'
+})
+```
 {% endmethod %}
 
 {% method name="getRegisteredEmails" %}
