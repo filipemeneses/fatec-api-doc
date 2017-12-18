@@ -218,3 +218,27 @@ enum DisciplineState {
 ```
 
 {% endmethod %}
+
+{% method name="getProfile" %}
+### `public getProfile (): Promise<any>`
+
+Will return your profile data, available at home and at exchange programs page
+
+{% sample lang="js" %}
+```js
+{
+  "averageGrade": number,
+  "birthday": Date,
+  "code": string,
+  "course": string,
+  "cpf": string,
+  "email": string,
+  "name": string,
+  "period": string,
+  "progress": number,
+  "unit": string
+}
+```
+
+{% endmethod %}
+
