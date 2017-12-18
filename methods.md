@@ -32,6 +32,29 @@ myAccount.getName().then(name => {
 ```
 {% endmethod %}
 
+{% method name="getProfile" %}
+### `public getProfile (): Promise<any>`
+
+Will return your profile data, available at home and at exchange programs page
+
+{% sample lang="js" %}
+```js
+{
+  "averageGrade": number,
+  "birthday": Date,
+  "code": string,
+  "course": string,
+  "cpf": string,
+  "email": string,
+  "name": string,
+  "period": string,
+  "progress": number,
+  "unit": string
+}
+```
+
+{% endmethod %}
+
 {% method name="getRegisteredEmails" %}
 ### `public getRegisteredEmails(): Promise<IRegisteredEmail[]>`
 
@@ -214,6 +237,31 @@ enum DisciplineState {
   attending = "attending",
   dismissed = "dismissed",
   quited = "quited",
+}
+```
+
+{% endmethod %}
+
+
+{% method name="getAcademicCalendar" %}
+### `public getAcademicCalendar (): Promise<any>`
+
+Will return every month of the calendar with it's respective events (usually holidays):
+
+{% sample lang="js" %}
+```js
+Calendar {
+  "months": [
+    {
+      "events": [
+        {
+          "date": "2017-01-01T02:00:00.000Z",
+          "name": "Feriado Nacional",
+          "reason": "CONFRATERNIZAÇÃO UNIVERSAL"
+        }
+      ]
+    }
+  ]
 }
 ```
 
