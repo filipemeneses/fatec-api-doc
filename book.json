@@ -1,15 +1,3 @@
 {
-    "plugins": [ "theme-api" ],
-    "language": "en",
-    "pluginsConfig": {
-        "theme-api": {
-            "languages": [
-                {
-                    "lang": "js",
-                    "name": "JavaScript",
-                    "default": true
-                }
-            ]
-        }
-    }
+  "language": "en",
 }
