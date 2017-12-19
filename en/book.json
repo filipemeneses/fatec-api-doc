@@ -6,7 +6,7 @@
         {
           "lang": "js",
           "name": "JavaScript",
-         "default": true
+          "default": true
         }
       ]
     }
