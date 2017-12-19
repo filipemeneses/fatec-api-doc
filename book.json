@@ -1,5 +1,7 @@
 {
     "plugins": [ "theme-api" ],
+    "language": "en",
+    "languages": ["en"],
     "pluginsConfig": {
         "theme-api": {
             "languages": [
