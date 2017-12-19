@@ -1,7 +1,6 @@
 {
     "plugins": [ "theme-api" ],
     "language": "en",
-    "languages": ["en"],
     "pluginsConfig": {
         "theme-api": {
             "languages": [
@@ -9,10 +8,6 @@
                     "lang": "js",
                     "name": "JavaScript",
                     "default": true
-                },
-                {
-                    "lang": "go",
-                    "name": "Go"
                 }
             ]
         }
