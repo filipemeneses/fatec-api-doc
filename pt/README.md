@@ -41,25 +41,25 @@ minhaConta.getName().then(nome => {
 })
 ```
 
-The scrapped data is available at `Account.student`, **continuing the example**:
+Os dados raspados estão disponíveis em `Account.student`, **continuando o exemplo:**:
 
 {% sample lang="js" %}
 ```js
 myAccount.student.getName()
-// <- 'YOUR FULL NAME WITH CAPSLOCK'
+// <- 'SEU NOME COM CAPSLOCK'
 ```
 {% endmethod %}
 
-## How it works `account.getName()`
+## Como funciona `account.getName()`
 
-This library scrap data using HTTP requests with `request` and parses the HTML with `cheerio` library.
+Essa biblioteca raspa os dados usando requisições HTTP com `request` and trata o HTML com a biblioteca `cheerio`.
 
-The [Account](/methods.md) class does the heavy lifting. Here's the flow of Account.getName():
+A classe [Account](/methods.md) faz o trabalho pesado. Veja o fluxo de `Account.getName()`:
 
 
 ![](/assets/requests.svg)
 
-The scrapped data is later available at [Account.student](/methods/student.md) on an account instance.
+Os dados raspados ficam disponíveis em [Account.student](/methods/student.md) em uma instância de `Account`.
 
 
 {% method name="api" %}

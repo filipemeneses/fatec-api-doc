@@ -53,12 +53,12 @@ myAccount.student.getName()
 
 This library scrap data using HTTP requests with `request` and parses the HTML with `cheerio` library.
 
-The [Account](/methods.md) class does the heavy lifting. Here's the flow of Account.getName():
+The [Account](/methods.md) class does the heavy lifting. Here's the flow of `Account.getName()`:
 
 
 ![](/assets/requests.svg)
 
-The scrapped data is later available at [Account.student](/methods/student.md) on an account instance.
+The scrapped data is later available at [Account.student](/methods/student.md) on an `Account` instance.
 
 
 {% method name="api" %}
