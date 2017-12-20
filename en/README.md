@@ -56,7 +56,7 @@ This library scrap data using HTTP requests with `request` and parses the HTML w
 The [Account](/methods.md) class does the heavy lifting. Here's the flow of `Account.getName()`:
 
 
-![](/assets/requests.svg)
+![](/en/assets/requests.svg)
 
 The scrapped data is later available at [Account.student](/methods/student.md) on an `Account` instance.
 

@@ -57,7 +57,7 @@ Essa biblioteca raspa os dados usando requisições HTTP com `request` and trata
 A classe [Account](/methods.md) faz o trabalho pesado. Veja o fluxo de `Account.getName()`:
 
 
-![](/assets/requests.svg)
+![](/pt/assets/requests.svg)
 
 Os dados raspados ficam disponíveis em [Account.student](/methods/student.md) em uma instância de `Account`.
 
