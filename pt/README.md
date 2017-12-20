@@ -4,14 +4,15 @@
   </h1>
 </div>
 
-**fatec-api** is an API for Centro Paula Souza's SIGA made for students to create things based in their profile data. Created with Typescript and available as a javascript package at [**npm**](https://www.npmjs.com/package/fatec-api). The source code is available at [Github](https://github.com/filipemeneses/fatec-api). For suggestions/help use [Github Issues](https://github.com/filipemeneses/fatec-api/issues) or join our [Discord channel](https://discord.gg/RUv5Kxw).
+**fatec-api** é uma API para o SIGA do Centro Paula Souza feito para os alunos criar coisas baseadas em seus perfis. Criado com Typescript e disponível como um pacote javascript em [**npm**](https://www.npmjs.com/package/fatec-api). O código fonte está disponível em [Github](https://github.com/filipemeneses/fatec-api). Para sugestões/ajuda use o [Github Issues](https://github.com/filipemeneses/fatec-api/issues) ou entre no nosso [canal do Discord](https://discord.gg/RUv5Kxw).
 
 
 ---
 {% method name="install" %}
-## Install
 
-If you're at a NPM project, use:
+## Instalando
+
+Se você estiver em um projeto NPM, use:
 
 {% sample lang="js" %}
 ```bash
@@ -22,22 +23,22 @@ npm install --save fatec-api
 
 {% method name="getting-started" %}
 
-## Getting Started
+## Começando
 
-A quick example will show how to use it: scrapping the user name.
+Um exemplo rápido vai facilitar demonstrar como usar: raspando o nome do usuário.
 
-> Using [Node.js](https://nodejs.org/en/) using ES6 syntax.
+> Usando [Node.js](https://nodejs.org/en/) com sintaxe ES6.
+
 
 {% sample lang="js" %}
 ```js
 const fatecApi = require('fatec-api')
-const myAccount = new fatecApi.Account('LOGIN', 'PASSWORD')
+const minhaConta = new fatecApi.Account('LOGIN', 'PASSWORD')
 
-myAccount.getName().then(name => {
-  console.log(name)
-  // <- 'YOUR FULL NAME WITH CAPSLOCK'
+minhaConta.getName().then(nome => {
+  console.log(nome)
+  // <- 'SEU NOME COM CAPSLOCK'
 })
-
 ```
 
 The scrapped data is available at `Account.student`, **continuing the example**:

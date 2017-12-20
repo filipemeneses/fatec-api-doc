@@ -1,20 +1,20 @@
 # Calendar (months)
 
-This class is used to store the academic calendar.
+Essa classe é usada para guardar o calendário acadêmico.
 
-## Argument type
+## Tipo do argumento
 
 ```js
 months: IMonth[];
 ```
 
-## Attributes
+## Atributos
 
 ```js
 private months: IMonth[];
 ```
 
-Where `IMonth`:
+Onde `IMonth`:
 
 ```js
 interface IMonth {
@@ -22,7 +22,7 @@ interface IMonth {
 }
 ```
 
-Where `IEvent`:
+Onde `IEvent`:
 
 ```js
 interface IEvent {
@@ -32,9 +32,9 @@ interface IEvent {
 }
 ```
 
-## Methods
+## Métodos
 
-### Public
+### Público
 
 - `public setMonths (months: IMonth[])`
 - `public getMonths (): IMonth[]`

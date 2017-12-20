@@ -1,13 +1,13 @@
 # Account (user, password)
 
-## Argument types
+## Tipos do argumento
 
 ```js
 user: string,
 password: string
 ```
 
-## Attributes
+## Atributos
 
 ```js
 private static readonly STATES = {
@@ -23,9 +23,9 @@ public state: number = Account.STATES.IDLE;
 public student: Student = new Student();
 ```
 
-## Methods
+## Métodos
 
-### Public
+### Público
 
 #### State
 
@@ -39,7 +39,7 @@ public student: Student = new Student();
 {% method name="login" %}
 ### `public login(): Promise`
 
-This method will request SIGA for access and try to log in. **This is no longer required, but is useful to catch if credentials are incorrect (or any other error in SIGA)**
+Esse método irá requisitar o SIGA para acessar e tentar logar. **Esse método não é obrigatório mais, mas é útil para tratar erros quando as credenciais estão incorretas (ou caso outro qualquer erro no SIGA)**
 
 {% endmethod %}
 
@@ -49,17 +49,17 @@ This method will request SIGA for access and try to log in. **This is no longer 
 {% method name="getName" %}
 ### `public getName(): Promise<string>`
 
-Will return the account's user name.
+Irá retornar o nome do usuário da conta.
 
 {% sample lang="js" %}
 ```js
 const fatecApi = require('fatec-api')
-const myAccount = new fatecApi.Account('LOGIN', 'PASSWORD')
+const minhaConta = new fatecApi.Account('LOGIN', 'PASSWORD')
 
-myAccount.getName().then(name => {})
+minhaConta.getName().then(name => {})
 ```
 
-Exemple of `name` value:
+Exemplo do valor de `name`:
 
 ```js
 'FILIPE COSTA MENESES'
@@ -69,20 +69,20 @@ Exemple of `name` value:
 {% method name="getProfile" %}
 ### `public getProfile (): Promise<any>`
 
-Will return your profile data, available at home and at exchange programs page
+Irá retornar os dados do seu perfil, disponíveis na tela inicial e na de intercâmbios
 
 {% sample lang="js" %}
 ```js
 const fatecApi = require('fatec-api')
-const myAccount = new fatecApi.Account('LOGIN', 'PASSWORD')
+const minhaConta = new fatecApi.Account('LOGIN', 'PASSWORD')
 
-myAccount.getProfile().then(profile => {})
+minhaConta.getProfile().then(perfil => {})
 ```
 
-Exemple of `profile` value:
+Exemplo do valor de `perfil`:
 
 ```js
-profile = {
+perfil = {
   "averageGrade": 8.82,
   "birthday": "1970-01-01T03:00:00.000Z",
   "code": "0000000000000",
@@ -101,17 +101,18 @@ profile = {
 {% method name="getRegisteredEmails" %}
 ### `public getRegisteredEmails(): Promise<IRegisteredEmail[]>`
 
-Will return a list of registered emails and it's respective integrations:
+
+Irá retornar uma lista de e-mails registrados e suas respectivas integrações:
 
 {% sample lang="js" %}
 ```js
 const fatecApi = require('fatec-api')
-const myAccount = new fatecApi.Account('LOGIN', 'PASSWORD')
+const minhaConta = new fatecApi.Account('LOGIN', 'PASSWORD')
 
-myAccount.getRegisteredEmails().then(emails => {})
+minhaConta.getRegisteredEmails().then(emails => {})
 ```
 
-Exemple of `emails` value:
+Exemplo do valor de `emails`:
 
 ```js
 emails = [
@@ -128,27 +129,26 @@ emails = [
 
 
 {% method name="getPartialGrades" %}
+
 ### `public getPartialGrades (): Promise<object>`
 
-Will return a list of partial grades
+Irá retornar uma lista de notas parciais
 
-
-> `"discipline"` is a instance of [Discipline](/methods/discipline.md)
-
-> `"evaluations"` is a list of instances of [Evaluation](/methods/evaluation.md)
+> `"discipline"` é uma instância de [Discipline](/methods/discipline.md)
+> `"evaluations"` é uma lista de instâncias de [Evaluation](/methods/evaluation.md)
 
 {% sample lang="js" %}
 ```js
 const fatecApi = require('fatec-api')
-const myAccount = new fatecApi.Account('LOGIN', 'PASSWORD')
+const minhaConta = new fatecApi.Account('LOGIN', 'PASSWORD')
 
-myAccount.getPartialGrades().then(partialGrades => {})
+minhaConta.getPartialGrades().then(notasParciais => {})
 ```
 
-Exemple of `partialGrades` value:
+Exemplo do valor de `notasParciais`:
 
 ```js
-partialGrades = [
+notasParciais = [
   {
     "discipline": Discipline {
       "name": "Interação Humano Computador",
@@ -208,20 +208,20 @@ partialGrades = [
 
 ### `public getEnrolledDisciplines (): Promise<Discipline[]>`
 
-Will return the enrolled disciplines
+Irá retornar as disciplinas matriculadas
 
 {% sample lang="js" %}
 ```js
 const fatecApi = require('fatec-api')
-const myAccount = new fatecApi.Account('LOGIN', 'PASSWORD')
+const minhaConta = new fatecApi.Account('LOGIN', 'PASSWORD')
 
-myAccount.getEnrolledDisciplines().then(disciplines => {})
+minhaConta.getEnrolledDisciplines().then(disciplinas => {})
 ```
 
-Exemple of `disciplines` value:
+Exemplo do valor de `disciplinas`:
 
 ```js
-disciplines = [
+disciplinas = [
   Discipline {
     "absenses": 10,
     "name": "Programação Orientada a Objetos",
@@ -244,22 +244,22 @@ disciplines = [
 
 ### `public getSchedules (): Promise<Schedule[]> `
 
-Will return the schedules with weekday and periods
+Irá retornar os horários com o dia da semana e períodos.
 
-> The day, month and year are relative to the current date. However, the hours and minutes remain the same.
+> O dia, mês e ano são relativos a data atual. Contudo, as horas e minutos permanecem os mesmos.
 
 {% sample lang="js" %}
 ```js
 const fatecApi = require('fatec-api')
-const myAccount = new fatecApi.Account('LOGIN', 'PASSWORD')
+const minhaConta = new fatecApi.Account('LOGIN', 'PASSWORD')
 
-myAccount.getSchedules().then((schedules) => {})
+minhaConta.getSchedules().then((horarios) => {})
 ```
 
-Exemple of `schedules` value:
+Exemplo do valor de `horarios`:
 
 ```js
-schedules = [
+horarios = [
   Schedule {
     "weekday": 3,
     "periods": [
@@ -292,20 +292,20 @@ schedules = [
 
 ### `public getHistory (): Promise<History>`
 
-Will return a instance of `History`
+Irá retornar uma instância de `History`
 
 {% sample lang="js" %}
 ```js
 const fatecApi = require('fatec-api')
-const myAccount = new fatecApi.Account('LOGIN', 'PASSWORD')
+const minhaConta = new fatecApi.Account('LOGIN', 'PASSWORD')
 
-myAccount.getHistory().then(history => {})
+minhaConta.getHistory().then(historico => {})
 ```
 
-Exemple of `history` value:
+Exemplo do valor de `historico`:
 
 ```js
-history = History {
+historico = History {
   entries: [
     {
       "discipline": {
@@ -333,20 +333,20 @@ history = History {
 
 ### `public getSchoolGrade (): Promise<SchoolGrade>`
 
-Will return a instance of `SchoolGrade`
+Irá retornar uma instância de `SchoolGrade`
 
 {% sample lang="js" %}
 ```js
 const fatecApi = require('fatec-api')
-const myAccount = new fatecApi.Account('LOGIN', 'PASSWORD')
+const minhaConta = new fatecApi.Account('LOGIN', 'PASSWORD')
 
-myAccount.getSchoolGrade().then(schoolGrade => {})
+minhaConta.getSchoolGrade().then(gradeEscolar => {})
 ```
 
-Exemple of `schoolGrade` value:
+Exemplo do valor de `gradeEscolar`:
 
 ```js
-schoolGrade = SchoolGrade {
+gradeEscolar = SchoolGrade {
   "semesters": [
     {
       "number": 1,
@@ -371,17 +371,17 @@ schoolGrade = SchoolGrade {
 {% method name="getAcademicCalendar" %}
 ### `public getAcademicCalendar (): Promise<Calendar>`
 
-Will return a instance of `Calendar`
+Irá retornar uma instância de `Calendar`
 
 {% sample lang="js" %}
 ```js
 const fatecApi = require('fatec-api')
-const myAccount = new fatecApi.Account('LOGIN', 'PASSWORD')
+const minhaConta = new fatecApi.Account('LOGIN', 'PASSWORD')
 
-myAccount.getAcademicCalendar().then(academicCalendar => {})
+minhaConta.getAcademicCalendar().then(calendarioAcademico => {})
 ```
 
-Exemple of `academicCalendar` value:
+Exemplo do valor de `calendarioAcademico`:
 
 ```js
 Calendar {
