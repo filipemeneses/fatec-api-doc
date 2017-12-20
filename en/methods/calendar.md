@@ -1,12 +1,24 @@
-## Calendar (months: IMonth[])
+# Calendar (months)
 
 This method is used to store the academic calendar.
+
+## Argument type
+
+```js
+months: IMonth[];
+```
+
+## Attributes
+
+```js
+private months: IMonth[];
+```
 
 Where `IMonth`:
 
 ```js
 interface IMonth {
-  events: IEvent
+  events: IEvent[];
 }
 ```
 
@@ -19,3 +31,10 @@ interface IEvent {
   reason: string;
 }
 ```
+
+## Methods
+
+### Public
+
+- `public setMonths (months: IMonth[])`
+- `public getMonths (): IMonth[]`

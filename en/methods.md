@@ -1,19 +1,50 @@
-# Account (user: string, password: string)
+# Account (user, password)
 
-> From v7.2 **.login()** is no longer mandatory to use the methods.
+## Argument types
 
-> For instance: you can call **account.getPartialGrades()** without calling **account.login()** first.
+```js
+user: string,
+password: string
+```
 
------
+## Attributes
+
+```js
+private static readonly STATES = {
+  DENIED: 1,
+  IDLE: 0,
+  LOGGED: 2,
+};
+
+public username: string;
+public password: string;
+public cookie: string = "";
+public state: number = Account.STATES.IDLE;
+public student: Student = new Student();
+```
+
+## Methods
+
+### Public
+
+#### State
+
+- `public isLogged (): boolean`
+- `public isDenied (): boolean`
+- `public isIdle (): boolean`
+
+
+#### Authentication
 
 {% method name="login" %}
 ### `public login(): Promise`
 
-This will request SIGA for access and set the account as logged in.
+This will request SIGA for access and set the account as logged in. **This is no longer required, but is useful to catch if credentials are incorrect**
 
 {% endmethod %}
 
 
+#### Scrapper
 
 {% method name="getName" %}
 ### `public getName(): Promise<string>`
@@ -25,10 +56,13 @@ Will return the account's user name.
 const fatecApi = require('fatec-api')
 const myAccount = new fatecApi.Account('LOGIN', 'PASSWORD')
 
-myAccount.getName().then(name => {
-  console.log(name)
-  // <- 'YOUR FULL NAME WITH CAPSLOCK'
-})
+myAccount.getName().then(name => {})
+```
+
+Example of `name` result:
+
+```js
+'FILIPE COSTA MENESES'
 ```
 {% endmethod %}
 
@@ -39,17 +73,26 @@ Will return your profile data, available at home and at exchange programs page
 
 {% sample lang="js" %}
 ```js
+const fatecApi = require('fatec-api')
+const myAccount = new fatecApi.Account('LOGIN', 'PASSWORD')
+
+myAccount.getProfile().then(profile => {})
+```
+
+Example of `profile` result:
+
+```js
 {
-  "averageGrade": number,
-  "birthday": Date,
-  "code": string,
-  "course": string,
-  "cpf": string,
-  "email": string,
-  "name": string,
-  "period": string,
-  "progress": number,
-  "unit": string
+  "averageGrade": 8.82,
+  "birthday": "1970-01-01T03:00:00.000Z",
+  "code": "0000000000000",
+  "course": "Tecnologia em Análise e Desenvolvimento de Sistemas",
+  "cpf": "00000000000",
+  "email": "flcmeneses@gmail.com",
+  "name": "FILIPE COSTA MENESES",
+  "period": "Manhã",
+  "progress": 42.85,
+  "unit": "Faculdade de Tecnologia de São José dos Campos - \"Professor Jessen Vidal\""
 }
 ```
 
@@ -62,10 +105,24 @@ Will return a list of registered emails and it's respective integrations:
 
 {% sample lang="js" %}
 ```js
-[{
-  email: string,
-  integrations: [ 'fatec', 'etec', 'preferential', 'websai']
-}]
+const fatecApi = require('fatec-api')
+const myAccount = new fatecApi.Account('LOGIN', 'PASSWORD')
+
+myAccount.getRegisteredEmails().then(emails => {})
+```
+
+Example of `emails` result:
+
+```js
+[
+  {
+    "email": "filipe.meneses@fatec.sp.gov.br",
+    "integrations": [
+      "fatec"
+    ]
+  },
+  ...
+]
 ```
 {% endmethod %}
 
@@ -82,90 +139,64 @@ Will return a list of partial grades
 
 {% sample lang="js" %}
 ```js
-[{
-  "approved": boolean,
-  "discipline": Discipline {
-    "name": string,
-    "code": string,
-    "classRoomId": number,
-    "quitDate": date,
-    "periodId": number,
-    "courseId": number,
-    "teacherId": number
-  },
-  "evaluations": [
-    Evaluation {
-      "applyDates": {
-        "applied": date,
-        "predicted": date,
-        "published": date
-      },
-      "description": string,
-      "grades": [
-        {
-          "date": date,
-          "score": number
-        }
-      ],
-      "code": date,
-      "title": date,
-      "weight": number
-    }
-  ],
-  "finalScore": number,
-  "frequency": number
-}]
+const fatecApi = require('fatec-api')
+const myAccount = new fatecApi.Account('LOGIN', 'PASSWORD')
+
+myAccount.getPartialGrades().then(partialGrades => {})
 ```
 
-{% endmethod %}
+Example of `partialGrades` result:
 
-{% method name="getEnrolledDisciplines" %}
-
-### `public getEnrolledDisciplines (): Promise<object>`
-
-Will return the enrolled disciplines with attendance, teacher data
-
-{% sample lang="js" %}
-```js
-[
-  Discipline {
-    "absenses": number,
-    "name": string,
-    "code": string,
-    "classRoomId": number,
-    "classRoomCode": string,
-    "quitDate": date,
-    "periodId": number,
-    "courseId": number,
-    "presences": number,
-    "teacherId": number,
-    "teacherName": string
-  }
-]
-```
-
-{% endmethod %}
-
-{% method name="getSchedules" %}
-
-### `public getSchedules (): Promise<string> `
-
-Will return the schedules with weekday and periods
-
-{% sample lang="js" %}
 ```js
 [
   {
-    "weekday": number
-    "periods": [
+    "discipline": Discipline {
+      "name": "Interação Humano Computador",
+      "code": "IHC001",
+      "classroomId": 1,
+      "frequency": 85,
+      "grade": 10,
+      "quitDate": "1970-01-01T00:00:00.000Z",
+      "periodId": 1,
+      "courseId": 24,
+      "state": "approved",
+      "teacherId": 171
+    },
+    "evaluations": [
       {
-        "classroomCode": string,
-        "discipline": Discipline {
-          "code": string,
+        "applyDates": {
+          "applied": "1970-01-01T00:00:00.000Z",
+          "predicted": "1970-01-01T00:00:00.000Z",
+          "published": "1970-01-01T00:00:00.000Z"
         },
-        "endAt": date,
-        "startAt": date
+        "description": "Projeto contendo o desenvolvimento de interfaces com HTML5",
+        "grades": [
+          {
+            "date": "2017-12-04T00:00:00.000Z",
+            "score": 10
+          }
+        ],
+        "code": "P1",
+        "title": "Projeto parte 1",
+        "weight": 1
       },
+      {
+        "applyDates": {
+          "applied": "1970-01-01T00:00:00.000Z",
+          "predicted": "1970-01-01T00:00:00.000Z",
+          "published": "1970-01-01T00:00:00.000Z"
+        },
+        "description": "Projeto parte 2",
+        "grades": [
+          {
+            "date": "2017-12-04T00:00:00.000Z",
+            "score": 10
+          }
+        ],
+        "code": "P2",
+        "title": "Projeto parte 2",
+        "weight": 1
+      }
     ]
   }
 ]
@@ -173,70 +204,162 @@ Will return the schedules with weekday and periods
 
 {% endmethod %}
 
+{% method name="getEnrolledDisciplines" %}
 
+### `public getEnrolledDisciplines (): Promise<Discipline[]>`
 
-
-{% method name="getHistory" %}
-
-### `public getHistory (): Promise<string>`
-
-Will return the history with it's entries
+Will return the enrolled disciplines with attendance, teacher data
 
 {% sample lang="js" %}
 ```js
-[
-  {
-    "absenses": number,
-    "approved": boolean,
-    "discipline": Discipline {
-      "name": string,
-      "code": string,
-      "quitDate": date
-    },
-    "frequency": number,
-    "grade": number,
-    "observation": string,
-    "period": string
-  }
+const fatecApi = require('fatec-api')
+const myAccount = new fatecApi.Account('LOGIN', 'PASSWORD')
+
+myAccount.getEnrolledDisciplines().then(disciplines => {})
+```
+
+Example of `disciplines` result:
+
+```js
+disciplines = [
+  Discipline {
+    "absenses": 10,
+    "name": "Programação Orientada a Objetos",
+    "code": "ILP007",
+    "classroomCode": "A",
+    "classroomId": 1,
+    "periodId": 1,
+    "presences": 66,
+    "courseId": 24,
+    "teacherName": "GERSON DA PENHA NETO",
+    "teacherId": 3131
+  },
+  ...
 ]
 ```
 
 {% endmethod %}
 
-  
+{% method name="getSchedules" %}
+
+### `public getSchedules (): Promise<Schedule[]> `
+
+Will return the schedules with weekday and periods
+
+{% sample lang="js" %}
+```js
+const fatecApi = require('fatec-api')
+const myAccount = new fatecApi.Account('LOGIN', 'PASSWORD')
+
+myAccount.getSchedules().then((schedules) => {})
+```
+
+Example of `schedules` result:
+
+```js
+schedules = [
+  Schedule {
+    "weekday": 3,
+    "periods": [
+      {
+        "discipline": Discipline {
+          "code": "ILP007",
+          "period": "A"
+        },
+        "endAt": Date "2017-12-20T10:50:00.000Z",
+        "startAt": Date "2017-12-20T10:00:00.000Z"
+      },
+      {
+        "discipline": Discipline {
+          "code": "ILP007",
+          "period": "A"
+        },
+        "endAt": Date "2017-12-20T10:00:00.000Z",
+        "startAt": Date "2017-12-20T09:10:00.000Z"
+      }
+    ]
+  }
+]
+```
+{% endmethod %}
+
+
+
+
+{% method name="getHistory" %}
+
+### `public getHistory (): Promise<History>`
+
+Will return a instance of History with it's entries
+
+{% sample lang="js" %}
+```js
+const fatecApi = require('fatec-api')
+const myAccount = new fatecApi.Account('LOGIN', 'PASSWORD')
+
+myAccount.getHistory().then(history => {})
+```
+
+Example of `history` result:
+
+```js
+history = History {
+  entries: [
+    {
+      "discipline": {
+        "absenses": 11,
+        "name": "Administração Geral",
+        "code": "AAG001",
+        "frequency": 86,
+        "grade": 9.5,
+        "period": "20162",
+        "state": "approved"
+      },
+      "observation": "Aprovado por Nota e Frequência"
+    },
+    ...
+  ]
+}
+```
+
+{% endmethod %}
+
+
 
 
 {% method name="getSchoolGrade" %}
 
-### `public getSchoolGrade (): Promise<object[]>`
+### `public getSchoolGrade (): Promise<SchoolGrade>`
 
 Will return the school grade with the semesters disciplines:
 
 {% sample lang="js" %}
 ```js
-{
-  "disciplines": [
-    Discipline {
-      "name": string,
-      "code": string,
-      "quitDate": date,
-      "state": DisciplineState
-    }
-  ],
-  "number": number
-}
+const fatecApi = require('fatec-api')
+const myAccount = new fatecApi.Account('LOGIN', 'PASSWORD')
+
+myAccount.getSchoolGrade().then(schoolGrade => {})
 ```
 
-Where `DisciplineState`:
+Example of `schoolGrade` result:
 
-{% sample lang="js" %}
 ```js
-enum DisciplineState {
-  approved = "approved",
-  notAttended = "not-attended",
-  attending = "attending",
-  dismissed = "dismissed",
-  quited = "quited",
+SchoolGrade {
+  "semesters": [
+    {
+      "number": 1,
+      "disciplines": [
+        Discipline {
+          "name": "Administração Geral",
+          "code": "AAG001",
+          "grade": 9.5,
+          "quitDate": "1970-01-01T00:00:00.000Z",
+          "state": "approved"
+        },
+      ]
+    },
+    ...
+  ]
 }
 ```
 
@@ -244,11 +367,20 @@ enum DisciplineState {
 
 
 {% method name="getAcademicCalendar" %}
-### `public getAcademicCalendar (): Promise<any>`
+### `public getAcademicCalendar (): Promise<Calendar>`
 
 Will return every month of the calendar with it's respective events (usually holidays):
 
 {% sample lang="js" %}
+```js
+const fatecApi = require('fatec-api')
+const myAccount = new fatecApi.Account('LOGIN', 'PASSWORD')
+
+myAccount.getAcademicCalendar().then(academicCalendar => {})
+```
+
+Example of `academicCalendar` result:
+
 ```js
 Calendar {
   "months": [
@@ -260,7 +392,8 @@ Calendar {
           "reason": "CONFRATERNIZAÇÃO UNIVERSAL"
         }
       ]
-    }
+    },
+    ...
   ]
 }
 ```

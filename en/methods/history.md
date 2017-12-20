@@ -1,49 +1,29 @@
-# Evaluation ({ applyDates, code, description, grades, title, weight })
+## History (entries)
 
-## Argument types
+## Argument type
 
 ```js
-{
-  applyDates: IApplyDate,
-  code: string,
-  description: string,
-  grades: IGrade[],
-  title: string,
-  weight: number,
-}
+entries: IEntry[]
 ```
 
 ## Attributes
 
 ```js
-private weight: number;
-private code: string;
-private title: string;
-private description: string;
-private grades: IGrade[];
-private applyDates: IApplyDate;
+private entries: IEntry[];
 ```
 
-and has the following interfaces:
+and has the following interface:
 
 ```js
-interface IGrade {
-  releaseDate: Date;
-  grade: number;
+interface IEntry {
+  observation: number;
+  discipline: Discipline;
 }
-
-interface IApplyDate {
-  predicted: Date;
-  applied: Date;
-  published: Date;
-}
-
 ```
 
 ## Methods
 
 ### Public
-
 
 - `public setWeight (weight: number): void `
 - `public getWeight (): number `
