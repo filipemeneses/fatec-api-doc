@@ -14,7 +14,3 @@
   * [School Grade](methods/school-grade.md)
   * [Student](methods/student.md)
   * [Calendar](methods/calendar.md)
-
-## Core modules
-
-* [Network](methods/network.md)
