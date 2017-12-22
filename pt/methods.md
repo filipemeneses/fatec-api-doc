@@ -39,7 +39,7 @@ public student: Student = new Student();
 {% method name="login" %}
 ### `public login(): Promise`
 
-Esse método irá requisitar o SIGA para acessar e tentar logar. **Esse método não é obrigatório mais, mas é útil para tratar erros quando as credenciais estão incorretas (ou caso outro qualquer erro no SIGA)**
+Esse método irá requisitar o SIGA para acessar e tentar logar. **Esse método não é obrigatório, mas é útil para tratar erros quando as credenciais estão incorretas (ou caso outro qualquer erro no SIGA)**
 
 {% endmethod %}
 
