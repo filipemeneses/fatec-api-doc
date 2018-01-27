@@ -45,8 +45,13 @@ Os dados raspados estão disponíveis em `Account.student`, **continuando o exem
 
 {% sample lang="js" %}
 ```js
-myAccount.student.getName()
-// <- 'SEU NOME COM CAPSLOCK'
+
+minhaConta.getName().then(() => {
+  console.log(minhaConta.student.getName());
+  // <- 'SEU NOME COM CAPSLOCK'
+})
+
+
 ```
 {% endmethod %}
 
